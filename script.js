@@ -3,6 +3,8 @@ let markers = [];
 let infoWindow;
 let currentLanguage = 'en';
 let filteredPharmacies = [...pharmacies];
+let streetViewService;
+let streetViewPanorama;
 
 // Language translations
 const translations = {
@@ -62,6 +64,9 @@ function initMap() {
     });
 
     infoWindow = new google.maps.InfoWindow();
+
+    // Initialize Street View service
+    streetViewService = new google.maps.StreetViewService();
 
     // Create markers for all pharmacies
     createMarkers();
@@ -305,6 +310,42 @@ function changeMapType(mapType) {
     document.querySelector(`[data-type="${mapType}"]`).classList.add('active');
 }
 
+// Toggle Street View
+function toggleStreetView() {
+    const streetViewBtn = document.getElementById('streetview-btn');
+    const center = map.getCenter();
+
+    streetViewService.getPanorama({
+        location: center,
+        radius: 50
+    }, (data, status) => {
+        if (status === 'OK') {
+            if (streetViewPanorama && streetViewPanorama.getVisible()) {
+                // Hide street view
+                streetViewPanorama.setVisible(false);
+                streetViewBtn.classList.remove('active');
+            } else {
+                // Show street view
+                if (!streetViewPanorama) {
+                    streetViewPanorama = new google.maps.StreetViewPanorama(
+                        document.getElementById('map'),
+                        {
+                            position: center,
+                            pov: { heading: 34, pitch: 10 },
+                            zoom: 1
+                        }
+                    );
+                }
+                streetViewPanorama.setPosition(center);
+                streetViewPanorama.setVisible(true);
+                streetViewBtn.classList.add('active');
+            }
+        } else {
+            alert('Street View data not found for this location.');
+        }
+    });
+}
+
 // Initialize event listeners
 function initEventListeners() {
     // Filter checkboxes
@@ -332,6 +373,8 @@ function initEventListeners() {
         });
     });
 
+    // Street View button
+    document.getElementById('streetview-btn').addEventListener('click', toggleStreetView);
 
     // Locate user button
     document.getElementById('locate-btn').addEventListener('click', () => {
