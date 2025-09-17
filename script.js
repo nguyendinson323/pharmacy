@@ -312,6 +312,7 @@ function initEventListeners() {
         });
     });
 
+
     // Locate user button
     document.getElementById('locate-btn').addEventListener('click', () => {
         if (navigator.geolocation) {
