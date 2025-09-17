@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoteka24.me - Find Pharmacies in Montenegro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Apoteka24.me</h1>
+                    <span class="tagline" data-en="Find Pharmacies in Montenegro" data-me="Pronađite Apoteke u Crnoj Gori">Find Pharmacies in Montenegro</span>
+                </div>
+                <div class="header-controls">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="me">ME</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="content-wrapper">
+                <aside class="sidebar">
+                    <div class="filters-section">
+                        <h2 data-en="Filters" data-me="Filteri">Filters</h2>
+
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <input type="checkbox" id="filter-247" class="filter-checkbox">
+                                <span class="checkmark"></span>
+                                <span data-en="24/7 Pharmacies" data-me="24/7 Apoteke">24/7 Pharmacies</span>
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <input type="checkbox" id="filter-sunday" class="filter-checkbox">
+                                <span class="checkmark"></span>
+                                <span data-en="Open on Sundays" data-me="Otvoreno Nedeljom">Open on Sundays</span>
+                            </label>
+                        </div>
+
+                        <button class="clear-filters" data-en="Clear Filters" data-me="Obriši Filtere">Clear Filters</button>
+                    </div>
+
+                    <div class="ad-banner">
+                        <div class="banner-container">
+                            <div class="banner-slide active">
+                                <div class="banner-content">
+                                    <h3>Advertisement</h3>
+                                    <p>Your pharmacy ad here</p>
+                                </div>
+                            </div>
+                            <div class="banner-slide">
+                                <div class="banner-content">
+                                    <h3>Medicine Delivery</h3>
+                                    <p>Fast & reliable service</p>
+                                </div>
+                            </div>
+                            <div class="banner-slide">
+                                <div class="banner-content">
+                                    <h3>Health Products</h3>
+                                    <p>Quality guaranteed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3 data-en="Found Pharmacies" data-me="Pronađene Apoteke">Found Pharmacies</h3>
+                        <div class="results-count">
+                            <span id="results-count">5</span> <span data-en="pharmacies" data-me="apoteka">pharmacies</span>
+                        </div>
+                        <div class="pharmacy-list" id="pharmacy-list">
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="map-container">
+                    <div class="map-type-tabs">
+                        <button class="map-type-tab active" data-type="roadmap">
+                            <i class="fas fa-map"></i>
+                            <span data-en="Map" data-me="Mapa">Map</span>
+                        </button>
+                        <button class="map-type-tab" data-type="satellite">
+                            <i class="fas fa-satellite"></i>
+                            <span data-en="Satellite" data-me="Satelit">Satellite</span>
+                        </button>
+                        <button class="map-type-tab" data-type="hybrid">
+                            <i class="fas fa-layer-group"></i>
+                            <span data-en="Hybrid" data-me="Hibrid">Hybrid</span>
+                        </button>
+                    </div>
+                    <div id="map"></div>
+                    <div class="map-controls">
+                        <button class="map-btn" id="locate-btn" title="Find my location">
+                            <i class="fas fa-location-arrow"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="pharmaciesList.js"></script>
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFVBL7chKgQBVvUpGUGdYloost_nm-Y50&callback=initMap"></script>
+</body>
+</html>
