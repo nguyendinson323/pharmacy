@@ -230,10 +230,20 @@ function highlightPharmacyInList(index) {
 function applyFilters() {
     const filter247 = document.getElementById('filter-247').checked;
     const filterSunday = document.getElementById('filter-sunday').checked;
+    const nameFilter = document.getElementById('filter-name').value.toLowerCase().trim();
 
     filteredPharmacies = pharmacies.filter(pharmacy => {
+        // Name filter
+        if (nameFilter && !pharmacy.name.toLowerCase().includes(nameFilter)) {
+            return false;
+        }
+
+        // 24/7 filter
         if (filter247 && !pharmacy.is247) return false;
+
+        // Sunday filter
         if (filterSunday && !pharmacy.sundayOpen) return false;
+
         return true;
     });
 
@@ -254,6 +264,7 @@ function applyFilters() {
 function clearFilters() {
     document.getElementById('filter-247').checked = false;
     document.getElementById('filter-sunday').checked = false;
+    document.getElementById('filter-name').value = '';
     applyFilters();
 }
 
@@ -271,6 +282,12 @@ function switchLanguage(lang) {
     document.querySelectorAll('[data-en]').forEach(element => {
         element.textContent = element.getAttribute(`data-${lang}`);
     });
+
+    // Update placeholder for name filter input
+    const nameInput = document.getElementById('filter-name');
+    if (nameInput) {
+        nameInput.placeholder = nameInput.getAttribute(`data-${lang}-placeholder`);
+    }
 
     // Re-render pharmacy list and markers
     renderPharmacyList();
@@ -293,6 +310,9 @@ function initEventListeners() {
     // Filter checkboxes
     document.getElementById('filter-247').addEventListener('change', applyFilters);
     document.getElementById('filter-sunday').addEventListener('change', applyFilters);
+
+    // Name filter input
+    document.getElementById('filter-name').addEventListener('input', applyFilters);
 
     // Clear filters button
     document.querySelector('.clear-filters').addEventListener('click', clearFilters);
