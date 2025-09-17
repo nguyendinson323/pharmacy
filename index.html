@@ -17,6 +17,32 @@
                     <span class="tagline" data-en="Find Pharmacies in Montenegro" data-me="Pronađite Apoteke u Crnoj Gori">Find Pharmacies in Montenegro</span>
                 </div>
                 <div class="header-controls">
+                    <!-- Filter Dropdown in Header -->
+                    <div class="header-filters">
+                        <button class="filters-btn">
+                            <i class="fas fa-filter"></i>
+                            <span data-en="Filters" data-me="Filteri">Filters</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="filters-dropdown">
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <input type="checkbox" id="filter-247" class="filter-checkbox">
+                                    <span class="checkmark"></span>
+                                    <span data-en="24/7 Pharmacies" data-me="24/7 Apoteke">24/7 Pharmacies</span>
+                                </label>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <input type="checkbox" id="filter-sunday" class="filter-checkbox">
+                                    <span class="checkmark"></span>
+                                    <span data-en="Open on Sundays" data-me="Otvoreno Nedeljom">Open on Sundays</span>
+                                </label>
+                            </div>
+                            <button class="clear-filters" data-en="Clear Filters" data-me="Obriši Filtere">Clear Filters</button>
+                        </div>
+                    </div>
+
                     <div class="language-switcher">
                         <button class="lang-btn active" data-lang="en">EN</button>
                         <button class="lang-btn" data-lang="me">ME</button>
@@ -30,56 +56,31 @@
         <div class="container">
             <div class="content-wrapper">
                 <aside class="sidebar">
-                    <!-- Fixed Top Box containing Filters and Ad Banner -->
-                    <div class="fixed-top-box">
-                        <div class="filters-section">
-                            <h2 data-en="Filters" data-me="Filteri">Filters</h2>
-
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <input type="checkbox" id="filter-247" class="filter-checkbox">
-                                    <span class="checkmark"></span>
-                                    <span data-en="24/7 Pharmacies" data-me="24/7 Apoteke">24/7 Pharmacies</span>
-                                </label>
+                    <div class="ad-banner">
+                        <div class="banner-container">
+                            <div class="banner-slide active">
+                                <div class="banner-content">
+                                    <h3>Advertisement</h3>
+                                    <p>Your pharmacy ad here</p>
+                                </div>
                             </div>
-
-                            <div class="filter-group">
-                                <label class="filter-label">
-                                    <input type="checkbox" id="filter-sunday" class="filter-checkbox">
-                                    <span class="checkmark"></span>
-                                    <span data-en="Open on Sundays" data-me="Otvoreno Nedeljom">Open on Sundays</span>
-                                </label>
+                            <div class="banner-slide">
+                                <div class="banner-content">
+                                    <h3>Medicine Delivery</h3>
+                                    <p>Fast & reliable service</p>
+                                </div>
                             </div>
-
-                            <button class="clear-filters" data-en="Clear Filters" data-me="Obriši Filtere">Clear Filters</button>
+                            <div class="banner-slide">
+                                <div class="banner-content">
+                                    <h3>Health Products</h3>
+                                    <p>Quality guaranteed</p>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="ad-banner">
-                            <div class="banner-container">
-                                <div class="banner-slide active">
-                                    <div class="banner-content">
-                                        <h3>Advertisement</h3>
-                                        <p>Your pharmacy ad here</p>
-                                    </div>
-                                </div>
-                                <div class="banner-slide">
-                                    <div class="banner-content">
-                                        <h3>Medicine Delivery</h3>
-                                        <p>Fast & reliable service</p>
-                                    </div>
-                                </div>
-                                <div class="banner-slide">
-                                    <div class="banner-content">
-                                        <h3>Health Products</h3>
-                                        <p>Quality guaranteed</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="banner-dots">
-                                <span class="dot active" data-slide="0"></span>
-                                <span class="dot" data-slide="1"></span>
-                                <span class="dot" data-slide="2"></span>
-                            </div>
+                        <div class="banner-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
                         </div>
                     </div>
 
